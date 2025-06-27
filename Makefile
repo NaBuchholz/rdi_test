@@ -20,10 +20,10 @@ test: $(TARGET)
 example: $(TARGET)
 	@echo "=== Example Usage ==="
 	@echo "Coke 500ml Takeout:"
-	@./$(TARGET) 1 1 2 1
+	@./$(TARGET) 0 0 500 0
 	@echo ""
 	@echo "Grape Juice 300ml Dine In:"
-	@./$(TARGET) 2 3 1 2
+	@./$(TARGET) 1 3 300 1
 
 clean:
 	rm -f *.o
