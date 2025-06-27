@@ -28,8 +28,8 @@ typedef enum e_flavor
 {
 	COKE,
 	GUARANA,
-	ORANGE_JUICE,
-	GRAPE_JUICE
+	GRAPE_JUICE,
+	ORANGE_JUICE
 }			flavor_t;
 
 typedef enum e_cup_type

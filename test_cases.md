@@ -134,7 +134,7 @@
 | Field | Description |
 |-------|-------------|
 | **ID** | TC007 |
-| **Title** | Validate Invalid Soda with Juice Flavor |
+| **Title** | Validate Invalid Soda with Juice Flavor Error |
 | **Priority** | High |
 | **Traceability** | FR008, FR009 - Flavor compatibility validation |
 | **Pre-Conditions** | ABS executable is compiled and available in current directory |
@@ -144,9 +144,9 @@
 | Step 1 | Execute command `./abs 0 2 500 0` | System receives soda type with orange juice flavor |
 | Step 2 | Perform flavor compatibility check | System detects incompatible flavor-drink combination |
 | Step 3 | Validate error handling | System rejects order without processing |
-| Step 4 | Verify error message | Appropriate error message is displayed |
+| Step 4 | Verify specific error message | Flavor compatibility error message is displayed |
 
-| **Post-Conditions** | Output displays: "Invalid Beverage" |
+| **Post-Conditions** | Error output displays to stderr: "Error: Invalid Flavor Beverage" and program exits with failure code |
 
 ---
 
@@ -155,7 +155,7 @@
 | Field | Description |
 |-------|-------------|
 | **ID** | TC008 |
-| **Title** | Validate Invalid Juice with Soda Flavor |
+| **Title** | Validate Invalid Juice with Soda Flavor Error |
 | **Priority** | High |
 | **Traceability** | FR008, FR009 - Flavor compatibility validation |
 | **Pre-Conditions** | ABS executable is compiled and available in current directory |
@@ -165,9 +165,9 @@
 | Step 1 | Execute command `./abs 1 0 300 0` | System receives juice type with Coke flavor |
 | Step 2 | Perform flavor compatibility check | System detects incompatible flavor-drink combination |
 | Step 3 | Validate error handling | System rejects order without processing |
-| Step 4 | Verify error message | Appropriate error message is displayed |
+| Step 4 | Verify specific error message | Flavor compatibility error message is displayed |
 
-| **Post-Conditions** | Output displays: "Invalid Beverage" |
+| **Post-Conditions** | Error output displays to stderr: "Error: Invalid Flavor Beverage" and program exits with failure code |
 
 ---
 
@@ -176,7 +176,7 @@
 | Field | Description |
 |-------|-------------|
 | **ID** | TC009 |
-| **Title** | Validate Invalid Juice 700ml Size |
+| **Title** | Validate Invalid Juice 700ml Size Error |
 | **Priority** | High |
 | **Traceability** | FR011, FR012 - Size compatibility validation |
 | **Pre-Conditions** | ABS executable is compiled and available in current directory |
@@ -186,9 +186,9 @@
 | Step 1 | Execute command `./abs 1 3 700 0` | System receives juice order with 700ml size |
 | Step 2 | Perform size compatibility check | System detects invalid size for juice |
 | Step 3 | Validate error handling | System rejects order without processing |
-| Step 4 | Verify error message | Appropriate error message is displayed |
+| Step 4 | Verify specific error message | Size compatibility error message is displayed |
 
-| **Post-Conditions** | Output displays: "Invalid Beverage" |
+| **Post-Conditions** | Error output displays to stderr: "Error: Invalid Cup Size" and program exits with failure code |
 
 ---
 
@@ -197,19 +197,19 @@
 | Field | Description |
 |-------|-------------|
 | **ID** | TC010 |
-| **Title** | Validate Invalid Drink Type Parameter |
+| **Title** | Validate Invalid Order Type Parameter Error |
 | **Priority** | Medium |
-| **Traceability** | FR006 - Drink type validation |
+| **Traceability** | FR021 - Order type validation |
 | **Pre-Conditions** | ABS executable is compiled and available in current directory |
 
 | Steps | Action | Expected Results |
 |-------|--------|------------------|
-| Step 1 | Execute command `./abs 2 0 300 0` | System receives invalid drink type (2) |
-| Step 2 | Perform parameter validation | System detects out-of-range drink type |
+| Step 1 | Execute command `./abs 0 0 300 2` | System receives invalid order type (2) |
+| Step 2 | Perform parameter validation | System detects out-of-range order type |
 | Step 3 | Validate error handling | System rejects order without processing |
-| Step 4 | Verify error message | Appropriate error message is displayed |
+| Step 4 | Verify specific error message | Order type error message is displayed |
 
-| **Post-Conditions** | Output displays: "Invalid Beverage" |
+| **Post-Conditions** | Error output displays to stderr: "Error: Invalid Order Type" and program exits with failure code |
 
 ---
 
@@ -230,7 +230,7 @@
 | Step 3 | Validate error handling | System displays argument count error |
 | Step 4 | Verify specific error message | Correct error message format is shown |
 
-| **Post-Conditions** | Output displays: "Error: hey, please, give ABS 4 arguments! :)" |
+| **Post-Conditions** | Error output displays to stderr: "Error: hey, please, give ABS 4 arguments! :)" and program exits with failure code |
 
 ---
 
@@ -239,7 +239,7 @@
 | Field | Description |
 |-------|-------------|
 | **ID** | TC012 |
-| **Title** | Validate Invalid Size Parameter |
+| **Title** | Validate Invalid Size Parameter Error |
 | **Priority** | Medium |
 | **Traceability** | FR011 - Size parameter validation |
 | **Pre-Conditions** | ABS executable is compiled and available in current directory |
@@ -249,20 +249,40 @@
 | Step 1 | Execute command `./abs 0 0 400 0` | System receives invalid size (400ml) |
 | Step 2 | Perform size validation | System detects invalid size parameter |
 | Step 3 | Validate error handling | System rejects order without processing |
-| Step 4 | Verify error message | Appropriate error message is displayed |
+| Step 4 | Verify specific error message | Size validation error message is displayed |
 
-| **Post-Conditions** | Output displays: "Invalid Beverage" |
+| **Post-Conditions** | Error output displays to stderr: "Error: Invalid Cup Size" and program exits with failure code |
+
+---
+
+## Test Case TC013
+
+| Field | Description |
+|-------|-------------|
+| **ID** | TC013 |
+| **Title** | Validate Excessive Arguments Error |
+| **Priority** | Medium |
+| **Traceability** | FR001, FR004 - Argument count validation |
+| **Pre-Conditions** | ABS executable is compiled and available in current directory |
+
+| Steps | Action | Expected Results |
+|-------|--------|------------------|
+| Step 1 | Execute command `./abs 0 0 300 0 extra` | System receives 6 arguments instead of 4 |
+| Step 2 | Perform argument count validation | System detects excessive arguments |
+| Step 3 | Validate error handling | System displays argument count error |
+| Step 4 | Verify specific error message | Correct error message format is shown |
+
+| **Post-Conditions** | Error output displays to stderr: "Error: hey, please, give ABS 4 arguments! :)" and program exits with failure code |
 
 ---
 
 ## Test Coverage Summary
 
-| Category | Test Cases | Coverage |
-|----------|------------|----------|
-| **Valid Orders** | TC001-TC006 | All valid drink/flavor/size combinations |
-| **Invalid Combinations** | TC007-TC009 | Incompatible flavor-drink and size-drink combinations |
-| **Parameter Validation** | TC010, TC012 | Out-of-range parameter values |
-| **Argument Validation** | TC011 | Incorrect argument count scenarios |
-| **Total Test Cases** | 12 | 100% functional coverage |
-
-**Traceability Matrix**: All test cases are mapped to specific functional requirements (FR001-FR023) ensuring complete requirement coverage.
+| Category | Test Cases | Coverage | Error Type |
+|----------|------------|----------|------------|
+| **Valid Orders** | TC001-TC006 | All valid drink/flavor/size combinations | Success output |
+| **Flavor Compatibility** | TC007-TC008 | Incompatible flavor-drink combinations | "Error: Invalid Flavor Beverage" |
+| **Size Compatibility** | TC009, TC012 | Invalid size parameters | "Error: Invalid Cup Size" |
+| **Order Type Validation** | TC010 | Invalid order type parameter | "Error: Invalid Order Type" |
+| **Argument Validation** | TC011, TC013 | Incorrect argument count scenarios | "Error: hey, please, give ABS 4 arguments! :)" |
+| **Total Test Cases** | 13 | 100% functional coverage | Specific error messages |

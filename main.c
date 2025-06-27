@@ -3,9 +3,9 @@
 int	main(int ac, char **av)
 {
 	int drink_type;
-	int order_type;
-	int cup_size;
 	int flavor;
+	int cup_size;
+	int order_type;
 	int result;
 
 	if (ac != 5)
@@ -14,9 +14,9 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	drink_type = atoi(av[1]);
-	order_type = atoi(av[2]);
+	flavor = atoi(av[2]);
 	cup_size = atoi(av[3]);
-	flavor = atoi(av[4]);
+	order_type = atoi(av[4]);
 	if (validate_params(drink_type, flavor, cup_size,
 			order_type) != EXIT_SUCCESS)
 		return (EXIT_FAILURE);
