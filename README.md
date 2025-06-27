@@ -22,7 +22,7 @@ make test
 make example
 ```
 
-#### Using Makefile (Recommended)
+#### Using Makefile 
 ```bash
 # Build
 make
@@ -36,16 +36,6 @@ make example
 # Clean
 make clean
 ```
-
-### Manual Compilation
-```bash
-# Compile
-gcc -o abs src/main.c src/abs.c -Wall -Wextra
-
-# Run
-./abs <drink_type> <flavor> <size> <order_type>
-```
-
 
 ## Parameters
 
