@@ -14,8 +14,8 @@ $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
 
 test: $(TARGET)
-	@chmod +x tests/run_tests.sh
-	@./tests/run_tests.sh
+	@chmod +x ./run_tests.sh
+	@./run_tests.sh
 
 example: $(TARGET)
 	@echo "=== Example Usage ==="
