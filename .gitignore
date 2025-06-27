@@ -53,3 +53,4 @@ gmon.out
 # Temporary files
 *.tmp
 *.temp
+.vscode/settings.json
