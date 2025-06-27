@@ -9,7 +9,7 @@ The ABS is an automated system for preparing beverages following specific rules 
 
 ```bash
 # Clone the repository
-git clone <repository-url> abs
+git clone https://github.com/NaBuchholz/rdi_test.git abs
 cd abs
 
 # Build the project
