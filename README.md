@@ -106,10 +106,12 @@ make clean
 - All parameters must be within valid ranges
 
 ## Code Structure
-- `src/abs.h` - Definitions and constants
-- `src/abs.c` - Business logic and validations
-- `src/main.c` - Command line interface
-- `Makefile` - Build System
-- `README.md` - Main documentation
-- `test_cases.md` - ISO 29119-3 test cases
-- `.gitignore` - Git ignore rules
+- `abs.h` - Header file with type definitions and function declarations
+- `abs.c` - Core business logic and validation functions
+- `main.c` - Command line interface and main program entry point
+- `utils.c` - Utility functions for data conversion and string handling
+- `Makefile` - Build system and automation scripts
+- `README.md` - Project documentation and usage guide
+- `test_cases.md` - ISO 29119-3 compliant test case documentation
+- `run_tests.sh` - Automated test execution script
+- `.gitignore` - Git version control ignore rules
