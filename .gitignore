@@ -1,1 +1,55 @@
+# Executables
+abs
+*.exe
+*.out
+
+# Object files
+*.o
+*.obj
+
+# Build directory
+build/
+
+# Backup files
+*~
+*.bak
+*.orig
+*.swp
+*.swo
+
+# Core dumps
+core
+core.*
+
+# Distribution packages
+*.tar.gz
+*.zip
+abs-dist/
+
+# IDE files
 .vscode/
+.idea/
+*.vcxproj*
+*.sln
+
+# OS specific
+.DS_Store
+Thumbs.db
+*.log
+
+# Documentation generated files
+docs/html/
+docs/latex/
+
+# Static analysis
+cppcheck-report.xml
+
+# Profiling data
+gmon.out
+*.gcov
+*.gcda
+*.gcno
+
+# Temporary files
+*.tmp
+*.temp
