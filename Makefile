@@ -19,10 +19,10 @@ test: $(TARGET)
 
 example: $(TARGET)
 	@echo "=== Example Usage ==="
-	@echo "Coke 500ml Takeout:"
+	@echo "Coke 500ml Takeout: <./$(TARGET) 0 0 500 0>"
 	@./$(TARGET) 0 0 500 0
 	@echo ""
-	@echo "Grape Juice 300ml Dine In:"
+	@echo "Grape Juice 300ml Dine In: <./$(TARGET) 1 3 300 1>"
 	@./$(TARGET) 1 3 300 1
 
 clean:
