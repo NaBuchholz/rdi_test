@@ -36,7 +36,7 @@ int	validate_params(int drink_type, int flavor, int cup_size, int order_type)
 	}
 	if (validate_flavor_compatibility(drink_type, flavor) != EXIT_SUCCESS)
 	{
-		fprintf(stderr, "Error: Invalid Flavor Beavege\n");
+		fprintf(stderr, "Error: Invalid Flavor Beverage\n");
 		return (EXIT_FAILURE);
 	}
 	if (validate_size_compatibility(drink_type, cup_size) != EXIT_SUCCESS)
