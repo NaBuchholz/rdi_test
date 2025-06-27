@@ -19,11 +19,18 @@ test: $(TARGET)
 
 example: $(TARGET)
 	@echo "=== Example Usage ==="
+	@echo ""
+	@echo "Usage: ./$(TARGET) <drink_type> <flavor> <size> <order_type>"
+	@echo ""
+	@echo "Parameters:"
+	@echo "  drink_type: 0=Soda | 1=Juice"
+	@echo "  flavor:     0=Coke | 1=Guarana | 2=Orange Juice | 3=Grape Juice"
+	@echo "  size:       300 | 500 | 700 (700ml only for sodas)"
+	@echo "  order_type: 0=Takeout | 1=Dine In"
+	@echo ""
 	@echo "Coke 500ml Takeout: <./$(TARGET) 0 0 500 0>"
 	@./$(TARGET) 0 0 500 0
 	@echo ""
-	@echo "Grape Juice 300ml Dine In: <./$(TARGET) 1 3 300 1>"
-	@./$(TARGET) 1 3 300 1
 
 clean:
 	rm -f *.o
