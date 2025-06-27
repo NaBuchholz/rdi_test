@@ -2,12 +2,13 @@
 # define ABS_H
 
 # include <fcntl.h>
+# include <stdio.h>
 # include <stdlib.h>
 
 typedef enum e_order_type
 {
-	TOGO,
-	INHOUSE
+	TAKEOUT,
+	DINEIN
 }	t_order_type;
 
 typedef enum e_drink_type
@@ -25,10 +26,12 @@ typedef enum e_size
 
 typedef enum e_flavor
 {
-	SODA,
+	COKE,
 	GURANA,
-	SUCODEUVA,
-	SUCODELARANJA
+	ORANGEJUICE,
+	GRAPEJUICE
 }	t_flavor;
+
+int	validate_params(int drink_type, int flavor, int size, int order_type);
 
 #endif
