@@ -50,37 +50,45 @@ gcc -o abs src/main.c src/abs.c -Wall -Wextra
 ## Parameters
 
 ### Drink Types
-- `1` - Soda
-- `2` - Juice
+- `0` - Soda
+- `1` - Juice
 
 ### Flavors
-- `1` - Coke (soda only)
-- `2` - Guarana (soda only)  
-- `3` - Grape Juice (juice only)
-- `4` - Orange Juice (juice only)
+- `0` - Coke (soda only)
+- `1` - Guarana (soda only)  
+- `2` - Grape Juice (juice only)
+- `3` - Orange Juice (juice only)
 
 ### Sizes
-- `1` - 300ml
-- `2` - 500ml
-- `3` - 700ml (soda only)
+- `300` - 300ml
+- `500` - 500ml
+- `700` - 700ml (soda only)
 
 ### Order Types
-- `1` - Takeout
-- `2` - Dine In
+- `0` - Takeout
+- `1` - Dine In
 
 ## Usage Examples
 
 ```bash
 # Coke 500ml takeout
-./abs 1 1 2 1
+./abs 0 0 500 0
 # Output: "The selected beverage was served in: Paper Cup, Containing: 6 ice cubes, with 500ml, and Lid without Hole"
 
 # Grape juice 300ml dine in
-./abs 2 3 1 2
+./abs 1 3 300 1
 # Output: "The selected beverage was served in: Plastic Cup, Containing: 12 ice cubes, with 300ml, and Lid with Hole"
 
+# Guarana 700ml dine in
+./abs 0 1 700 1
+# Output: "The selected beverage was served in: Paper Cup, Containing: 6 ice cubes, with 700ml, and Lid with Hole"
+
 # Invalid case: Soda with juice flavor
-./abs 1 3 2 1
+./abs 0 2 500 0
+# Output: "Invalid Beverage"
+
+# Invalid case: Juice 700ml (not available)
+./abs 1 3 700 0
 # Output: "Invalid Beverage"
 ```
 
