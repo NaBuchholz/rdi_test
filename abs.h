@@ -17,17 +17,17 @@ typedef enum e_drink_type
 	JUICE
 }			drink_type_t;
 
-typedef enum e_size
+typedef enum e_cup_size
 {
 	P = 300,
 	M = 500,
 	G = 700
-}			size_t;
+}			cup_size_t;
 
 typedef enum e_flavor
 {
 	COKE,
-	GURANA,
+	GUARANA,
 	ORANGE_JUICE,
 	GRAPE_JUICE
 }			flavor_t;
@@ -44,16 +44,22 @@ typedef enum e_lid_type
 	LID_WITH_HOLE
 }			lid_type_t;
 
-int			validate_params(int drink_type, int flavor, int size,
+typedef enum e_ice_cubes
+{
+	SODA_ICE_CUBES = 6,
+	JUICE_ICE_CUBES = 12,
+}			ice_cubes_t;
+
+int			validate_params(int drink_type, int flavor, int cup_size,
 				int order_type);
 int			validate_flavor_compatibility(int drink_type, int flavor);
-int			validate_size_compatibility(int drink_type, int size);
-int			make_soda(int flavor, int size, int order_type);
-int			make_juice(int flavor, int size, int order_type);
+int			validate_size_compatibility(int drink_type, int cup_size);
+int			make_soda(int cup_size, int order_type);
+int			make_juice(int cup_size, int order_type);
 cup_type_t	get_cup_type(int drink_type);
 int			get_ice_count(int drink_type);
 lid_type_t	get_lid_type(int order_type);
-int			get_size_ml(int size);
+int			get_size_ml(int cup_size);
 const char	*get_flavor_name(int flavor);
 const char	*get_cup_name(cup_type_t cup_type);
 const char	*get_lid_name(lid_type_t lid_type);
